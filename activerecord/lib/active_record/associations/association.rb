@@ -41,6 +41,7 @@ module ActiveRecord
         reflection.check_validity!
 
         @owner, @reflection = owner, reflection
+        @loaded = false
         @disable_joins = @reflection.options[:disable_joins] || false
 
         reset

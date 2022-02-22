@@ -131,7 +131,7 @@ class AssociationProxyTest < ActiveRecord::TestCase
     david = authors(:david)
 
     david.posts << (post = Post.new(title: "New on Edge", body: "More cool stuff!"))
-    assert_not_predicate david.posts, :loaded?
+    assert_equal david.posts.loaded?, false
     assert_includes david.posts, post
   end
 
